@@ -18,25 +18,12 @@ print(r2)
 hd=r2.html.find('.colhead')
 
 
-for x in range(7):
-    lst2.append(hd[x].text)
-
-
-for x in range(7,9):
-    out = []
-    buff = []  
-
-    for c in hd[x].text:
-        if c == '\n':
-            out.append(''.join(buff))
-            buff = []
-        else:
-            buff.append(c)
+for x in range(len(hd)):
+    if '\n' in hd[x].text:
+        s=hd[x].text.split("\n")
+        lst2.append(''.join(s))
     else:
-        if buff:
-           out.append(''.join(buff))
-           
-    lst2.append(' '.join(out[0:len(out)]))
+        lst2.append(hd[x].text)
     
 time.sleep(1)
 
@@ -55,20 +42,9 @@ for j in range(len(exchange)):
         symbol=r.html.find('tr')
 
         for x in range(3,len(symbol)-5):
-            out = []
-            buff = []
-            
-            for c in symbol[x].text:
-                if c == '\n':
-                    out.append(''.join(buff))
-                    buff = []
-                else:
-                    buff.append(c)
-            else:
-                if buff:
-                   out.append(''.join(buff))
-            lst1.append(tuple(out[0:len(out)]))
-        time.sleep(1)
+            s=(symbol[x].text).split("\n")
+            lst1.append(tuple(s[0:len(s)]))
+        time.sleep(.5)
         
     df=pd.DataFrame(lst1, columns=headers)
 
