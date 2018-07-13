@@ -25,7 +25,7 @@ for x in range(len(hd)):
     else:
         lst2.append(hd[x].text)
     
-time.sleep(1)
+time.sleep(.5)
 
 headers = lst2
 exchange=['shtnyse_', 'shtnasdaq_','shtamex_']
