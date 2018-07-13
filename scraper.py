@@ -21,7 +21,7 @@ hd=r2.html.find('.colhead')
 for x in range(len(hd)):
     if '\n' in hd[x].text:
         s=hd[x].text.split("\n")
-        lst2.append(''.join(s))
+        lst2.append(' '.join(s))
     else:
         lst2.append(hd[x].text)
     
