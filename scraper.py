@@ -14,7 +14,7 @@ lst2=[]
 
 url2='http://www.wsj.com/mdc/public/page/2_3062-shtnyse_0_9-listing.html'
 r2 = session.get(url2)    
-print(r2)
+#print(r2)
 hd=r2.html.find('.colhead')
 
 
